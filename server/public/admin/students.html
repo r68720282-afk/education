@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Students</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+  <h2>Admin</h2>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="students.html">Students</a>
+  <a href="visitors.html">Visitors</a>
+</div>
+
+<div class="main">
+
+<h1>Students</h1>
+
+<input id="search" placeholder="Search..." onkeyup="searchData()">
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Course</th>
+<th>City</th>
+</tr>
+</thead>
+
+<tbody id="data"></tbody>
+</table>
+
+</div>
+
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
