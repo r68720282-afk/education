@@ -1,0 +1,10 @@
+
+<!DOCTYPE html><html><body>
+<h2>Students</h2><div id="d"></div>
+<script>
+fetch("http://localhost:5000/api/users")
+.then(r=>r.json()).then(d=>{
+document.getElementById("d").innerHTML=d.map(u=>"<p>"+u.name+"</p>").join("");
+});
+</script>
+</body></html>

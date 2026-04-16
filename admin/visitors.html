@@ -1,0 +1,10 @@
+
+<!DOCTYPE html><html><body>
+<h2>Visitors</h2><div id="d"></div>
+<script>
+fetch("http://localhost:5000/api/visitors")
+.then(r=>r.json()).then(d=>{
+document.getElementById("d").innerHTML=d.map(v=>"<p>"+v.ip+"</p>").join("");
+});
+</script>
+</body></html>
