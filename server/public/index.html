@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Top Colleges in MP | College Portal</title>
+
+<meta name="description" content="Find top colleges in Madhya Pradesh. Explore medical, engineering and more courses.">
+<meta name="keywords" content="MP colleges, engineering, medical, college portal">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <h2>🎓 CollegePortal</h2>
+  <button onclick="openForm('General')">Register</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p>Welcome 👋</p>
+    <h1>Explore Colleges in Madhya Pradesh</h1>
+    <button class="cta" onclick="openForm('General')">Find College</button>
+  </div>
+
+  <div class="hero-right">
+    <img src="images/hero.jpg" alt="Students studying">
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+
+  <h2>Explore Categories</h2>
+
+  <div class="grid">
+
+    <div class="card" onclick="openForm('Medical')">
+      <img src="images/medical.jpg">
+      <h3>Medical</h3>
+    </div>
+
+    <div class="card" onclick="openForm('Engineering')">
+      <img src="images/engineering.jpg">
+      <h3>Engineering</h3>
+    </div>
+
+    <div class="card" onclick="openForm('Management')">
+      <img src="images/management.jpg">
+      <h3>Management</h3>
+    </div>
+
+    <div class="card" onclick="openForm('IT')">
+      <img src="images/it.jpg">
+      <h3>IT</h3>
+    </div>
+
+    <div class="card" onclick="openForm('Arts')">
+      <img src="images/arts.jpg">
+      <h3>Arts</h3>
+    </div>
+
+    <div class="card" onclick="openForm('Pharmacy')">
+      <img src="images/pharmacy.jpg">
+      <h3>Pharmacy</h3>
+    </div>
+
+  </div>
+</section>
+
+<!-- POPUP FORM -->
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <span class="close" onclick="closeForm()">×</span>
+
+    <h2>Register</h2>
+
+    <form id="form">
+      <input placeholder="Name" required>
+      <input placeholder="Mobile" required>
+      <input placeholder="Email" required>
+
+      <select id="city">
+        <option>Bhopal</option>
+        <option>Indore</option>
+        <option>Jabalpur</option>
+        <option>Chhindwara</option>
+        <option>Seoni</option>
+      </select>
+
+      <input id="course" readonly>
+
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
