@@ -1,1 +1,26 @@
-body{background:#111;color:#fff;text-align:center}
+body {
+  background: #0f172a;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #1e293b;
+}
+
+.hero {
+  padding: 50px;
+  background: linear-gradient(135deg,#3b82f6,#9333ea);
+}
+
+.card {
+  background: #1e293b;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
