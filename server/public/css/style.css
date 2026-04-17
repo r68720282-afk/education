@@ -5,11 +5,9 @@ background:#0f172a;
 color:white;
 }
 
-/* HERO */
 .hero{
 display:flex;
 flex-wrap:wrap;
-align-items:center;
 padding:40px;
 background:linear-gradient(135deg,#6366f1,#9333ea);
 }
@@ -19,7 +17,6 @@ width:300px;
 border-radius:10px;
 }
 
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -45,7 +42,6 @@ height:150px;
 object-fit:cover;
 }
 
-/* DETAIL */
 .detail{
 padding:30px;
 text-align:center;
@@ -56,7 +52,6 @@ width:80%;
 border-radius:10px;
 }
 
-/* COURSES */
 .course-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -75,7 +70,6 @@ cursor:pointer;
 background:#3b82f6;
 }
 
-/* POPUP */
 .popup{
 display:none;
 position:fixed;
@@ -98,7 +92,6 @@ font-size:14px;
 color:#ccc;
 }
 
-/* MOBILE */
 @media(max-width:768px){
 .grid{grid-template-columns:1fr;}
 .course-grid{grid-template-columns:1fr;}
