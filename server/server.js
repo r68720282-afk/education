@@ -1,40 +1,28 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
 app.use(express.json());
 
-/* =========================
-   MongoDB Connection
-========================= */
+// 🔥 STATIC FILES SERVE
+app.use(express.static(path.join(__dirname, "public")));
+
+// API ROUTES
+app.use("/api/users", require("./routes/users"));
+app.use("/api/visitors", require("./routes/visitors"));
+
+// 🔥 ROOT FIX (IMPORTANT)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// DB CONNECT
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("DB Connected"))
 .catch(err => console.log("DB Error:", err));
 
-/* =========================
-   ROOT ROUTE (FIX)
-========================= */
-app.get("/", (req, res) => {
-  res.send("College Portal API is running 🚀");
-});
-
-/* =========================
-   API ROUTES
-========================= */
-app.use("/api/visitors", require("./routes/visitors"));
-app.use("/api/users", require("./routes/users"));
-app.use("/api/colleges", require("./routes/colleges"));
-
-/* =========================
-   PORT (Render Fix)
-========================= */
 const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
-});
+app.listen(PORT, () => console.log("Server running on port " + PORT));
