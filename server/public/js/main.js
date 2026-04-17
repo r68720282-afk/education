@@ -1,12 +1,12 @@
 let currentCourse="";
 
 const categories={
-Medical:{title:"Medical Courses",desc:"Best medical courses",courses:["MBBS","GNM","ANM"]},
-Engineering:{title:"Engineering Courses",desc:"Top engineering courses",courses:["B.Tech","Diploma"]},
-Computer:{title:"IT Courses",desc:"Computer courses",courses:["BCA","MCA"]},
-Management:{title:"Management Courses",desc:"Business courses",courses:["MBA","BBA"]},
-Pharmacy:{title:"Pharmacy Courses",desc:"Pharmacy programs",courses:["B.Pharm"]},
-Law:{title:"Law Courses",desc:"Legal studies",courses:["LLB"]}
+Medical:{title:"Medical Courses",desc:"MBBS, Nursing, ANM",courses:["MBBS","GNM","ANM"]},
+Engineering:{title:"Engineering Courses",desc:"B.Tech, Diploma",courses:["B.Tech","Diploma"]},
+Computer:{title:"IT Courses",desc:"BCA, MCA",courses:["BCA","MCA"]},
+Management:{title:"Management Courses",desc:"MBA, BBA",courses:["MBA","BBA"]},
+Pharmacy:{title:"Pharmacy Courses",desc:"B.Pharm",courses:["B.Pharm"]},
+Law:{title:"Law Courses",desc:"LLB",courses:["LLB"]}
 };
 
 function openCategory(name){
@@ -23,14 +23,35 @@ data.courses.map(c=>`<div onclick="openForm('${c}')">${c}</div>`).join("");
 }
 
 function openForm(course){
-popup.style.display="flex";
+document.getElementById("popup").style.display="flex";
 document.getElementById("course").value=course;
 }
 
 function closeForm(){
-popup.style.display="none";
+document.getElementById("popup").style.display="none";
 }
 
 window.openCategory=openCategory;
 window.openForm=openForm;
 window.closeForm=closeForm;
+
+/* FORM SUBMIT */
+document.getElementById("studentForm").addEventListener("submit",async(e)=>{
+e.preventDefault();
+
+const data={
+name:name.value,
+mobile:mobile.value,
+email:email.value,
+course:course.value
+};
+
+await fetch("http://localhost:5000/api/apply",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
+});
+
+alert("Submitted Successfully");
+closeForm();
+});
