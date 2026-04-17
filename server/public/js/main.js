@@ -1,141 +1,115 @@
-// ===============================
-// GLOBAL COURSE
-// ===============================
-let currentCourse = "General";
+/* ===============================
+🎯 POPUP CONTROL
+================================= */
 
+function openForm(courseName = "General") {
+const popup = document.getElementById("popup");
+popup.style.display = "flex";
 
-// ===============================
-// OPEN FORM
-// ===============================
-function openForm(course){
-    currentCourse = course || "General";
-
-    const popup = document.getElementById("popup");
-    const courseInput = document.getElementById("course");
-
-    if(popup){
-        popup.style.display = "flex";
-    }
-
-    if(courseInput){
-        courseInput.value = currentCourse;
-    }
+// course auto select
+if (courseName) {
+const courseField = document.getElementById("course");
+if (courseField) courseField.value = courseName;
+}
 }
 
-
-// ===============================
-// CLOSE FORM
-// ===============================
-function closeForm(){
-    const popup = document.getElementById("popup");
-    if(popup){
-        popup.style.display = "none";
-    }
+function closeForm() {
+document.getElementById("popup").style.display = "none";
 }
 
+/* ===============================
+🧠 FORM SUBMIT (API CONNECT)
+================================= */
 
-// ===============================
-// CLOSE POPUP ON OUTSIDE CLICK
-// ===============================
-window.addEventListener("click", function(e){
-    const popup = document.getElementById("popup");
-    if(e.target === popup){
-        popup.style.display = "none";
-    }
+const form = document.getElementById("studentForm");
+
+if (form) {
+form.addEventListener("submit", async function (e) {
+e.preventDefault();
+
+```
+const data = {
+  name: document.getElementById("name").value,
+  mobile: document.getElementById("mobile").value,
+  course: document.getElementById("course").value,
+  city: document.getElementById("city").value
+};
+
+try {
+  const res = await fetch("/api/leads", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+
+  if (result.success) {
+    alert("✅ Form Submitted Successfully!");
+
+    // optional WhatsApp redirect
+    const msg = `Name: ${data.name}%0ACourse: ${data.course}%0ACity: ${data.city}`;
+    window.open(`https://wa.me/91XXXXXXXXXX?text=${msg}`);
+
+    form.reset();
+    closeForm();
+  } else {
+    alert("❌ Something went wrong");
+  }
+
+} catch (error) {
+  console.error(error);
+  alert("❌ Server error");
+}
+```
+
 });
+}
 
+/* ===============================
+🖼️ IMAGE SLIDER
+================================= */
 
-// ===============================
-// IMAGE SLIDER (SAFE VERSION)
-// ===============================
-const slides = [
-    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800",
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800"
+const images = [
+"https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800",
+"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800",
+"https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=800"
 ];
 
-let slideIndex = 0;
+let index = 0;
+const slideImage = document.getElementById("slideImage");
 
-function startSlider(){
-    const slideImage = document.getElementById("slideImage");
-
-    // अगर image नहीं है तो slider run नहीं होगा (no error)
-    if(!slideImage) return;
-
-    setInterval(() => {
-        slideIndex = (slideIndex + 1) % slides.length;
-        slideImage.src = slides[slideIndex];
-    }, 3000);
+if (slideImage) {
+setInterval(() => {
+index = (index + 1) % images.length;
+slideImage.src = images[index];
+}, 3000);
 }
 
+/* ===============================
+🔥 CLICK OUTSIDE POPUP CLOSE
+================================= */
 
-// ===============================
-// FORM SUBMIT (SAFE)
-// ===============================
-function handleFormSubmit(){
-    const form = document.getElementById("studentForm");
+window.addEventListener("click", function (e) {
+const popup = document.getElementById("popup");
 
-    if(!form) return; // दूसरे pages में error नहीं देगा
-
-    form.addEventListener("submit", function(e){
-        e.preventDefault();
-
-        const name = document.getElementById("name")?.value;
-        const mobile = document.getElementById("mobile")?.value;
-        const course = document.getElementById("course")?.value;
-        const city = document.getElementById("city")?.value;
-
-        // VALIDATION
-        if(!name || !mobile){
-            alert("Please fill all required fields");
-            return;
-        }
-
-        if(mobile.length !== 10){
-            alert("Enter valid 10 digit mobile number");
-            return;
-        }
-
-        // DATA OBJECT
-        const data = {
-            name,
-            mobile,
-            course,
-            city
-        };
-
-        console.log("Form Data:", data);
-
-        // 👉 Backend connect ready (optional)
-        /*
-        fetch("http://localhost:5000/api/apply", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-        */
-
-        alert("Form Submitted Successfully ✅");
-
-        form.reset();
-        closeForm();
-    });
+if (e.target === popup) {
+closeForm();
 }
-
-
-// ===============================
-// INIT (PAGE LOAD)
-// ===============================
-window.addEventListener("DOMContentLoaded", () => {
-    startSlider();
-    handleFormSubmit();
 });
 
+/* ===============================
+🎯 SIMPLE SCROLL EFFECT
+================================= */
 
-// ===============================
-// GLOBAL ACCESS (IMPORTANT)
-// ===============================
-window.openForm = openForm;
-window.closeForm = closeForm;
+window.addEventListener("scroll", () => {
+const navbar = document.querySelector(".navbar");
+
+if (window.scrollY > 50) {
+navbar.style.background = "#000";
+} else {
+navbar.style.background = "#020617";
+}
+});
