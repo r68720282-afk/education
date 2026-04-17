@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Find Best Colleges in MP | College Portal</title>
-<meta name="description" content="Explore top colleges in MP. Engineering, Medical, IT, MBA courses with admission guidance.">
+<title>Best Colleges in MP | Admission Guidance</title>
+
+<meta name="description" content="Find best colleges in MP for Engineering, Nursing, IT, MBA & more. Get admission guidance.">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,12 +15,11 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div>
-    <h1>Find Your Dream College 🎓</h1>
-    <p>Get expert admission guidance in Madhya Pradesh</p>
-    <button onclick="openForm('General')">Get Started</button>
+  <div class="hero-text">
+    <h1>Find Your Dream Course 🎓</h1>
+    <p>Explore top courses & get admission guidance</p>
+    <button onclick="openForm('General')">Apply Now</button>
   </div>
-
   <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
 </section>
 
@@ -31,7 +31,7 @@
 
 <div class="card" onclick="openCategory('Medical')">
 <img src="https://images.unsplash.com/photo-1580281657527-47e9b6e33c61">
-<h3>Medical</h3>
+<h3>Nursing & Paramedical</h3>
 </div>
 
 <div class="card" onclick="openCategory('Pharmacy')">
@@ -73,7 +73,7 @@
 </section>
 
 <!-- CATEGORY DETAIL -->
-<section id="categoryDetail" style="display:none;">
+<section id="categoryDetail" class="detail">
 <h1 id="catTitle"></h1>
 <img id="catImage">
 <p id="catDesc"></p>
@@ -89,13 +89,13 @@
 
 <span onclick="closeForm()">×</span>
 
-<h2>Get Admission Guidance</h2>
+<h2>Admission Guidance</h2>
 <p class="tagline">👉 Information ke liye form fill kare</p>
 
 <form id="studentForm">
-<input id="name" placeholder="Full Name" required>
-<input id="mobile" placeholder="Mobile Number" required>
-<input id="email" placeholder="Email Address" required>
+<input id="name" placeholder="Name" required>
+<input id="mobile" placeholder="Mobile" required>
+<input id="email" placeholder="Email" required>
 
 <select id="city">
 <option>Bhopal</option>
