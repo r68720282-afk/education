@@ -1,30 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>College Portal</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admission Guidance in Madhya Pradesh</title>
+
+<meta name="description" content="Get admission guidance in Madhya Pradesh for Nursing, Engineering, IT, MBA and more. Free counseling available.">
+
+<!-- ✅ CORRECT PATH -->
+<link rel="stylesheet" href="/css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="navbar">
-  <h2>CollegePortal</h2>
-  <a href="register.html">Register</a>
-</header>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h2>EduGuide MP</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="distance.html">Distance</a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+</nav>
 
+<!-- HERO -->
 <section class="hero">
-  <h1>Find Your Future College</h1>
-  <input type="text" id="search" placeholder="Search colleges...">
-  <button onclick="searchCollege()">Search</button>
+  <div class="hero-text">
+    <h1>Admission Guidance in Madhya Pradesh 🎓</h1>
+    <p>Get expert counseling for Nursing, Engineering, IT, MBA & more</p>
+    <button onclick="openForm('General')">Apply Now</button>
+  </div>
+
+  <!-- SLIDER IMAGE -->
+  <img id="slideImage" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800">
 </section>
 
-<section class="categories">
-  <div class="card" onclick="goCategory('medical')">🏥 Medical</div>
-  <div class="card" onclick="goCategory('engineering')">⚙️ Engineering</div>
+<!-- COURSES -->
+<section class="courses">
+  <h2>Top Courses in MP</h2>
+
+  <div class="grid">
+
+    <div class="card" onclick="openForm('GNM')">
+      <img src="https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b?w=400">
+      <h3>Medical Courses</h3>
+    </div>
+
+    <div class="card" onclick="openForm('B.Tech')">
+      <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400">
+      <h3>Engineering</h3>
+    </div>
+
+    <div class="card" onclick="openForm('BCA')">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400">
+      <h3>IT / Computer</h3>
+    </div>
+
+    <div class="card" onclick="openForm('MBA')">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400">
+      <h3>Management</h3>
+    </div>
+
+    <div class="card" onclick="openForm('B.Pharm')">
+      <img src="https://images.unsplash.com/photo-1580281657527-47a7c54b6b3f?w=400">
+      <h3>Pharmacy</h3>
+    </div>
+
+    <div class="card" onclick="openForm('LLB')">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400">
+      <h3>Law</h3>
+    </div>
+
+  </div>
 </section>
 
-<script src="js/main.js"></script>
-<script src="js/visitor.js"></script>
+<!-- ABOUT SHORT -->
+<section class="section">
+  <h2>About Our Admission Services</h2>
+  <p>
+    We provide expert admission guidance for students across Madhya Pradesh including 
+    Bhopal, Indore, Jabalpur, Chhindwara and Seoni. Our goal is to help students 
+    choose the right course and secure admission easily.
+  </p>
+  <a href="about.html">Read More →</a>
+</section>
+
+<!-- DISTANCE -->
+<section class="section">
+  <h2>Distance & Online Courses</h2>
+  <p>
+    Explore flexible learning options with our distance and online courses. 
+    Get guidance for UGC approved programs.
+  </p>
+  <a href="distance.html">Explore Courses →</a>
+</section>
+
+<!-- POPUP FORM -->
+<div id="popup" class="popup">
+  <div class="popup-box">
+
+    <span onclick="closeForm()">×</span>
+
+    <h3>Apply for Counseling</h3>
+
+    <form id="studentForm">
+
+      <input id="name" placeholder="Name" required>
+      <input id="mobile" placeholder="Mobile" required>
+
+      <select id="course">
+        <option>GNM</option>
+        <option>BSc Nursing</option>
+        <option>B.Tech</option>
+        <option>BCA</option>
+        <option>MBA</option>
+        <option>B.Pharm</option>
+        <option>LLB</option>
+      </select>
+
+      <select id="city">
+        <option>Indore</option>
+        <option>Bhopal</option>
+        <option>Jabalpur</option>
+        <option>Chhindwara</option>
+        <option>Seoni</option>
+      </select>
+
+      <button type="submit">Submit</button>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- ✅ CORRECT JS PATH -->
+<script src="/js/main.js" defer></script>
 
 </body>
 </html>
