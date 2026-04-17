@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admission Guidance</title>
+
+<title>Admission Guidance India</title>
+
+<meta name="description" content="Get admission guidance for Medical, Engineering, MBA, IT and more. Free counseling available.">
 
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -13,58 +16,97 @@
 
 <!-- HERO -->
 <section class="hero">
-<div>
-<h1>Find Your Dream Course 🎓</h1>
-<p>Get expert admission guidance for top courses</p>
-<button onclick="openForm('General')">Apply Now</button>
-</div>
+<h1>Admission Guidance for Students in India 🎓</h1>
+<p>Get expert counseling for Medical, Engineering, IT, MBA & more</p>
+
+<button onclick="openForm('General')">Apply for Free Counseling</button>
 </section>
 
-<!-- CATEGORY -->
-<section class="categories">
+<!-- COURSES -->
+<section class="section">
+<h2>Top Courses After 12th</h2>
 
-<div class="card" onclick="openCategory('Medical')">
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b?w=600">
-<h3>Medical</h3>
+<div class="grid">
+
+<div onclick="openCategory('Medical')" class="card">Medical Courses</div>
+<div onclick="openCategory('Engineering')" class="card">Engineering</div>
+<div onclick="openCategory('Computer')" class="card">IT Courses</div>
+<div onclick="openCategory('Management')" class="card">Management</div>
+<div onclick="openCategory('Pharmacy')" class="card">Pharmacy</div>
+<div onclick="openCategory('Law')" class="card">Law</div>
+
 </div>
-
-<div class="card" onclick="openCategory('Engineering')">
-<img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600">
-<h3>Engineering</h3>
-</div>
-
-<div class="card" onclick="openCategory('Computer')">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600">
-<h3>IT</h3>
-</div>
-
-<div class="card" onclick="openCategory('Management')">
-<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600">
-<h3>Management</h3>
-</div>
-
-<div class="card" onclick="openCategory('Pharmacy')">
-<img src="https://images.unsplash.com/photo-1580281657527-47a7c54b6b3f?w=600">
-<h3>Pharmacy</h3>
-</div>
-
-<div class="card" onclick="openCategory('Law')">
-<img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600">
-<h3>Law</h3>
-</div>
-
 </section>
 
 <!-- COURSE DETAIL -->
-<section id="courseSection" class="course">
-
+<section id="courseSection" class="section">
 <h2 id="catTitle"></h2>
 <p id="catDesc"></p>
 
 <div id="courseList"></div>
 
 <button onclick="openForm(currentCourse)">Apply Now</button>
+</section>
 
+<!-- EXAMS -->
+<section class="section">
+<h2>Popular Entrance Exams</h2>
+
+<div class="grid">
+<div class="card">NEET</div>
+<div class="card">JEE</div>
+<div class="card">CAT</div>
+<div class="card">CMAT</div>
+</div>
+
+<p>
+We provide complete guidance for entrance exams like NEET, JEE, CAT and other competitive exams. 
+Our experts help students prepare, choose the right colleges and secure admissions.
+</p>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+<h2>About Our Admission Services</h2>
+
+<p>
+We are one of the leading admission guidance platforms helping students across India. 
+Our team provides complete support from course selection to final admission.
+</p>
+
+<p>
+Students from cities like Bhopal, Indore, Jabalpur and across India trust our services 
+for reliable counseling and affordable admission options.
+</p>
+
+<a href="about.html">Read More →</a>
+</section>
+
+<!-- DISTANCE -->
+<section class="section">
+<h2>Distance & Online Courses</h2>
+
+<p>
+Explore flexible learning options with our distance and online courses. 
+We offer guidance for UGC approved universities and programs.
+</p>
+
+<a href="distance.html">Explore Courses →</a>
+</section>
+
+<!-- SEO -->
+<section class="section">
+<h2>Admission Guidance in India</h2>
+
+<p>
+Choosing the right course after 12th is important. We help students select the best career path 
+based on their interests and academic background.
+</p>
+
+<p>
+Our services include counseling for Medical, Engineering, MBA, IT, Pharmacy and Law courses. 
+We ensure students get proper guidance and secure admission in top institutions.
+</p>
 </section>
 
 <!-- POPUP -->
@@ -73,11 +115,18 @@
 
 <span onclick="closeForm()">×</span>
 
+<h3>Apply for Counseling</h3>
+
 <form id="studentForm">
-<input id="name" placeholder="Name">
-<input id="mobile" placeholder="Mobile">
-<input id="course" readonly>
-<button>Submit</button>
+<input id="name" placeholder="Name" required>
+<input id="mobile" placeholder="Mobile" required>
+<input id="email" placeholder="Email">
+
+<select id="course">
+<option>General</option>
+</select>
+
+<button type="submit">Submit</button>
 </form>
 
 </div>
