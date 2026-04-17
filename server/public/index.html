@@ -3,125 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Admission Guidance MP</title>
-
-<meta name="description" content="Best admission guidance in Madhya Pradesh for Nursing, Engineering, IT, MBA, Pharmacy.">
+<title>Admission Guidance</title>
 
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-text">
-    <h1>Best Admission Guidance in MP 🎓</h1>
-    <p>Get Free Counseling for Top Courses</p>
+  <div class="hero-left">
+    <h1>Find Your Dream Course 🎓</h1>
+    <p>Get expert admission guidance for top courses</p>
 
+    <button onclick="openForm('General')">Apply Now</button>
+  </div>
+
+  <!-- FLOATING FORM -->
+  <div class="hero-form">
+    <h3>Get Free Call</h3>
     <form id="heroForm">
-      <input id="hname" placeholder="Name" required>
-      <input id="hmobile" placeholder="Mobile" required>
-
-      <select id="hcourse">
+      <input placeholder="Name" required>
+      <input placeholder="Mobile" required>
+      <select>
         <option>General</option>
         <option>Nursing</option>
         <option>Engineering</option>
-        <option>IT</option>
       </select>
-
-      <button type="submit">Get Free Call</button>
+      <button type="submit">Submit</button>
     </form>
   </div>
-
-  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600">
 </section>
 
-<!-- CATEGORY -->
-<section>
-<h2>Top Courses After 12th</h2>
+<!-- CATEGORY (BIG CARDS) -->
+<section class="categories">
 
-<div class="grid">
-
-<div class="card" onclick="openCategory('Medical')">
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b?w=400">
-<h3>Nursing</h3>
+<div class="cat-card" onclick="openCategory('Medical')">
+<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b?w=600">
+<h2>Nursing</h2>
 </div>
 
-<div class="card" onclick="openCategory('Engineering')">
-<img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400">
-<h3>Engineering</h3>
+<div class="cat-card" onclick="openCategory('Engineering')">
+<img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600">
+<h2>Engineering</h2>
 </div>
 
-<div class="card" onclick="openCategory('Computer')">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400">
-<h3>IT</h3>
+<div class="cat-card" onclick="openCategory('Computer')">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600">
+<h2>IT & Computer</h2>
 </div>
 
-</div>
 </section>
 
-<!-- DETAIL -->
-<section id="categoryDetail" class="detail">
+<!-- COURSE DETAIL -->
+<section id="categoryDetail" class="course-section">
 
-<div class="big-card">
-<img id="catImage">
+<div class="course-box">
+  <img id="catImage">
 
-<div class="big-content">
-<h2 id="catTitle"></h2>
-<p id="catDesc"></p>
+  <div class="course-content">
+    <h2 id="catTitle"></h2>
+    <p id="catDesc"></p>
 
-<div id="courseList" class="course-tags"></div>
+    <div id="courseList" class="tags"></div>
 
-<ul>
-<li>✔ Course Details & Fees</li>
-<li>✔ Career Opportunities</li>
-</ul>
-
-<button onclick="openForm(currentCourse)">Apply Now</button>
-</div>
+    <button onclick="openForm(currentCourse)">Apply Now</button>
+  </div>
 
 </div>
 
 </section>
 
 <!-- WHY -->
-<section>
+<section class="why">
 <h2>Why Choose Us</h2>
 
-<div class="grid">
-<div class="card">Free Counseling</div>
-<div class="card">Expert Guidance</div>
-<div class="card">Low Fees</div>
-<div class="card">Fast Admission</div>
-</div>
-</section>
-
-<!-- ABOUT + DISTANCE -->
-<section class="links-section">
-
-<div class="link-card">
-<img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400">
-<h3>About Us</h3>
-<a href="about.html">View More →</a>
-</div>
-
-<div class="link-card">
-<img src="https://images.unsplash.com/photo-1581092919535-7146ff1a590e?w=400">
-<h3>Distance Courses</h3>
-<a href="distance.html">Explore →</a>
+<div class="why-grid">
+<div>Free Counseling</div>
+<div>Best Guidance</div>
+<div>Low Fees</div>
+<div>Fast Admission</div>
 </div>
 
 </section>
 
 <!-- SEO -->
-<section class="seo-content">
+<section class="seo">
 <h2>Admission Guidance in MP</h2>
-<p>
-We help students choose best courses after 12th and provide full admission support.
-</p>
+<p>We provide expert counseling for students after 12th.</p>
 </section>
 
 <!-- POPUP -->
@@ -133,14 +103,9 @@ We help students choose best courses after 12th and provide full admission suppo
 <h2>Apply Now</h2>
 
 <form id="studentForm">
-<input id="name" placeholder="Name" required>
-<input id="mobile" placeholder="Mobile" required>
+<input id="name" placeholder="Name">
+<input id="mobile" placeholder="Mobile">
 <input id="email" placeholder="Email">
-
-<select id="city">
-<option>Bhopal</option>
-<option>Indore</option>
-</select>
 
 <input id="course" readonly>
 
@@ -150,7 +115,7 @@ We help students choose best courses after 12th and provide full admission suppo
 </div>
 </div>
 
-<script src="main.js" defer></script>
+<script src="main.js"></script>
 
 </body>
 </html>
