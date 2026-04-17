@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Admission Guidance</title>
 
 <link rel="stylesheet" href="style.css">
@@ -14,21 +13,21 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
+  <div class="hero-left">
     <h1>Find Your Dream Course 🎓</h1>
     <p>Get expert admission guidance for top courses</p>
   </div>
 
-  <!-- FLOATING FORM -->
   <div class="hero-form">
     <h3>Get Free Call</h3>
     <form id="heroForm">
-      <input placeholder="Name" required>
-      <input placeholder="Mobile" required>
-      <select>
+      <input id="hname" placeholder="Name" required>
+      <input id="hmobile" placeholder="Mobile" required>
+      <select id="hcourse">
         <option>General</option>
         <option>Nursing</option>
         <option>Engineering</option>
+        <option>IT</option>
       </select>
       <button>Submit</button>
     </form>
@@ -55,45 +54,48 @@
 
 </section>
 
-<!-- COURSE DETAIL -->
+<!-- COURSE -->
 <section id="courseSection">
 
 <div class="course-box">
 <img id="catImage">
 
-<div class="course-text">
+<div class="course-content">
 <h2 id="catTitle"></h2>
 <p id="catDesc"></p>
 
 <div id="courseList" class="tags"></div>
 
 <button onclick="openForm(currentCourse)">Apply Now</button>
-
 </div>
+
 </div>
 
 </section>
 
-<!-- STEPS -->
-<section class="steps">
-<div>1 Fill Form</div>
-<div>2 Get Call</div>
-<div>3 Choose Course</div>
-<div>4 Admission</div>
+<!-- WHY -->
+<section class="why">
+<h2>Why Choose Us</h2>
+<div class="why-grid">
+<div>Free Counseling</div>
+<div>Expert Guidance</div>
+<div>Low Fees</div>
+<div>Fast Admission</div>
+</div>
 </section>
 
 <!-- SEO -->
 <section class="seo">
 <h2>Admission Guidance in MP</h2>
-<p>We provide expert admission guidance for all courses.</p>
+<p>We provide expert counseling for students after 12th.</p>
 </section>
 
-<!-- ABOUT -->
+<!-- LINKS -->
 <section class="links">
 <div class="link-card">
 <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800">
 <h3>About Us</h3>
-<a href="about.html">View</a>
+<a href="about.html">View More</a>
 </div>
 
 <div class="link-card">
@@ -109,10 +111,10 @@
 <span onclick="closeForm()">×</span>
 
 <form id="studentForm">
-<input placeholder="Name">
-<input placeholder="Mobile">
-<input placeholder="Email">
-<input id="course">
+<input id="name" placeholder="Name">
+<input id="mobile" placeholder="Mobile">
+<input id="email" placeholder="Email">
+<input id="course" readonly>
 <button>Submit</button>
 </form>
 
@@ -120,6 +122,5 @@
 </div>
 
 <script src="main.js"></script>
-
 </body>
 </html>
