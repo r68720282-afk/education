@@ -1,12 +1,12 @@
-// ============================
-// GLOBAL VARIABLES
-// ============================
+// ===============================
+// GLOBAL COURSE
+// ===============================
 let currentCourse = "General";
 
 
-// ============================
-// OPEN FORM (FROM BUTTON / CARD)
-// ============================
+// ===============================
+// OPEN FORM
+// ===============================
 function openForm(course){
     currentCourse = course || "General";
 
@@ -23,9 +23,9 @@ function openForm(course){
 }
 
 
-// ============================
+// ===============================
 // CLOSE FORM
-// ============================
+// ===============================
 function closeForm(){
     const popup = document.getElementById("popup");
     if(popup){
@@ -34,9 +34,9 @@ function closeForm(){
 }
 
 
-// ============================
-// CLOSE POPUP WHEN CLICK OUTSIDE
-// ============================
+// ===============================
+// CLOSE POPUP ON OUTSIDE CLICK
+// ===============================
 window.addEventListener("click", function(e){
     const popup = document.getElementById("popup");
     if(e.target === popup){
@@ -45,9 +45,9 @@ window.addEventListener("click", function(e){
 });
 
 
-// ============================
-// IMAGE SLIDER (AUTO)
-// ============================
+// ===============================
+// IMAGE SLIDER (SAFE VERSION)
+// ===============================
 const slides = [
     "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800",
     "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
@@ -59,7 +59,8 @@ let slideIndex = 0;
 function startSlider(){
     const slideImage = document.getElementById("slideImage");
 
-    if(!slideImage) return; // safety (only run if exists)
+    // अगर image नहीं है तो slider run नहीं होगा (no error)
+    if(!slideImage) return;
 
     setInterval(() => {
         slideIndex = (slideIndex + 1) % slides.length;
@@ -68,13 +69,15 @@ function startSlider(){
 }
 
 
-// ============================
-// FORM SUBMIT (BACKEND CONNECT)
-// ============================
-const form = document.getElementById("studentForm");
+// ===============================
+// FORM SUBMIT (SAFE)
+// ===============================
+function handleFormSubmit(){
+    const form = document.getElementById("studentForm");
 
-if(form){
-    form.addEventListener("submit", async function(e){
+    if(!form) return; // दूसरे pages में error नहीं देगा
+
+    form.addEventListener("submit", function(e){
         e.preventDefault();
 
         const name = document.getElementById("name")?.value;
@@ -82,7 +85,7 @@ if(form){
         const course = document.getElementById("course")?.value;
         const city = document.getElementById("city")?.value;
 
-        // BASIC VALIDATION
+        // VALIDATION
         if(!name || !mobile){
             alert("Please fill all required fields");
             return;
@@ -93,40 +96,46 @@ if(form){
             return;
         }
 
-        const data = { name, mobile, course, city };
+        // DATA OBJECT
+        const data = {
+            name,
+            mobile,
+            course,
+            city
+        };
 
-        try{
-            await fetch("http://localhost:5000/api/apply", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
+        console.log("Form Data:", data);
 
-            alert("Form Submitted Successfully ✅");
+        // 👉 Backend connect ready (optional)
+        /*
+        fetch("http://localhost:5000/api/apply", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+        */
 
-            form.reset();
-            closeForm();
+        alert("Form Submitted Successfully ✅");
 
-        }catch(err){
-            alert("Server Error ❌");
-            console.error(err);
-        }
+        form.reset();
+        closeForm();
     });
 }
 
 
-// ============================
+// ===============================
 // INIT (PAGE LOAD)
-// ============================
+// ===============================
 window.addEventListener("DOMContentLoaded", () => {
     startSlider();
+    handleFormSubmit();
 });
 
 
-// ============================
-// GLOBAL EXPORT (IMPORTANT)
-// ============================
+// ===============================
+// GLOBAL ACCESS (IMPORTANT)
+// ===============================
 window.openForm = openForm;
 window.closeForm = closeForm;
