@@ -1,53 +1,127 @@
 let currentCourse = "";
 
 const categories = {
+
   Medical: {
-    title: "Medical Colleges in MP",
+    title: "Nursing & Paramedical Courses",
     img: "https://images.unsplash.com/photo-1580281657527-47e9b6e33c61",
-    desc: "Explore MBBS, BDS and top healthcare colleges with expert guidance."
-  },
-
-  Engineering: {
-    title: "Engineering Colleges in MP",
-    img: "https://images.unsplash.com/photo-1581092335397-9583eb92d232",
-    desc: "Find best engineering colleges with placements and labs."
-  },
-
-  Management: {
-    title: "MBA Colleges",
-    img: "https://images.unsplash.com/photo-1552664730-d307ca884978",
-    desc: "Top MBA colleges with internships and corporate exposure."
-  },
-
-  IT: {
-    title: "IT & Computer Courses",
-    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-    desc: "Learn coding, software and IT skills from top institutes."
-  },
-
-  Arts: {
-    title: "Arts Courses",
-    img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
-    desc: "Explore creative and humanities courses."
+    desc: "Explore nursing and paramedical courses for healthcare careers.",
+    courses: [
+      "GNM Nursing",
+      "BSc Nursing",
+      "ANM Nursing",
+      "Lab Technician",
+      "Radiology",
+      "Physiotherapy"
+    ]
   },
 
   Pharmacy: {
-    title: "Pharmacy Colleges",
+    title: "Pharmacy Courses",
     img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
-    desc: "Top pharma colleges with labs and industry exposure."
+    desc: "Pharmacy courses with practical lab training.",
+    courses: [
+      "B.Pharmacy",
+      "D.Pharmacy",
+      "Clinical Pharmacy",
+      "Pharma Research"
+    ]
+  },
+
+  Engineering: {
+    title: "Engineering Courses",
+    img: "https://images.unsplash.com/photo-1581092335397-9583eb92d232",
+    desc: "Technical engineering programs with placement support.",
+    courses: [
+      "B.Tech",
+      "Diploma Engineering",
+      "Mechanical",
+      "Civil",
+      "Electrical"
+    ]
+  },
+
+  Computer: {
+    title: "Computer & IT Courses",
+    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    desc: "IT and software development courses.",
+    courses: [
+      "BCA",
+      "MCA",
+      "Data Science",
+      "Web Development",
+      "Cyber Security"
+    ]
+  },
+
+  Management: {
+    title: "Management Courses",
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978",
+    desc: "Business and management courses.",
+    courses: [
+      "MBA",
+      "BBA",
+      "Marketing",
+      "Finance",
+      "HR"
+    ]
+  },
+
+  Design: {
+    title: "Design Courses",
+    img: "https://images.unsplash.com/photo-1492724441997-5dc865305da7",
+    desc: "Creative design courses.",
+    courses: [
+      "Graphic Design",
+      "Fashion Design",
+      "Interior Design"
+    ]
+  },
+
+  Law: {
+    title: "Law Courses",
+    img: "https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1",
+    desc: "Legal education programs.",
+    courses: [
+      "LLB",
+      "BA LLB",
+      "Corporate Law"
+    ]
+  },
+
+  Agriculture: {
+    title: "Agriculture Courses",
+    img: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854",
+    desc: "Agriculture and farming related courses.",
+    courses: [
+      "BSc Agriculture",
+      "Dairy Technology",
+      "Food Technology"
+    ]
   }
+
 };
 
 function openCategory(name){
+
   const data = categories[name];
   currentCourse = name;
 
   document.getElementById("categoryDetail").style.display = "block";
+
   document.getElementById("catTitle").innerText = data.title;
   document.getElementById("catImage").src = data.img;
   document.getElementById("catDesc").innerText = data.desc;
 
-  // SEO update
+  const courseList = data.courses.map(course => `
+    <div class="course-card" onclick="openForm('${course}')">
+      ${course}
+    </div>
+  `).join("");
+
+  document.getElementById("courseList").innerHTML = courseList;
+
+  // SEO
   document.title = data.title;
   document.querySelector("meta[name='description']")
     .setAttribute("content", data.desc);
@@ -67,11 +141,11 @@ document.getElementById("studentForm")
   e.preventDefault();
 
   const data = {
-    name: name.value,
-    mobile: mobile.value,
-    email: email.value,
-    city: city.value,
-    course: course.value
+    name: document.getElementById("name").value,
+    mobile: document.getElementById("mobile").value,
+    email: document.getElementById("email").value,
+    city: document.getElementById("city").value,
+    course: document.getElementById("course").value
   };
 
   fetch("/api/users", {
