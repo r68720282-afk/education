@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login</title>
+
+<link rel="stylesheet" href="css/admin.css">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background: #020617;
+  padding: 30px;
+  border-radius: 10px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login-box button:hover {
+  background: #2563eb;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+  <h2>Admin Login</h2>
+
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+</div>
+
+<script>
+function login(){
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  // Basic login (future me secure karenge)
+  if(user === "admin" && pass === "1234"){
+    localStorage.setItem("admin", "true");
+    window.location.href = "dashboard.html";
+  } else {
+    alert("Invalid credentials");
+  }
+}
+
+// Auto redirect if already logged in
+if(localStorage.getItem("admin") === "true"){
+  window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>
