@@ -1,24 +1,28 @@
 /* ===============================
-🎯 POPUP CONTROL
+GLOBAL FUNCTIONS (IMPORTANT FIX)
 ================================= */
 
-function openForm(courseName = "General") {
+window.openForm = function(courseName = "General") {
 const popup = document.getElementById("popup");
-popup.style.display = "flex";
+if (popup) popup.style.display = "flex";
 
-// course auto select
-if (courseName) {
 const courseField = document.getElementById("course");
 if (courseField) courseField.value = courseName;
-}
-}
+};
 
-function closeForm() {
-document.getElementById("popup").style.display = "none";
-}
+window.closeForm = function() {
+const popup = document.getElementById("popup");
+if (popup) popup.style.display = "none";
+};
 
 /* ===============================
-🧠 FORM SUBMIT (API CONNECT)
+RUN AFTER PAGE LOAD
+================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+/* ===============================
+FORM SUBMIT
 ================================= */
 
 const form = document.getElementById("studentForm");
@@ -28,48 +32,44 @@ form.addEventListener("submit", async function (e) {
 e.preventDefault();
 
 ```
-const data = {
-  name: document.getElementById("name").value,
-  mobile: document.getElementById("mobile").value,
-  course: document.getElementById("course").value,
-  city: document.getElementById("city").value
-};
+  const data = {
+    name: document.getElementById("name").value,
+    mobile: document.getElementById("mobile").value,
+    course: document.getElementById("course").value,
+    city: document.getElementById("city").value
+  };
 
-try {
-  const res = await fetch("/api/leads", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
+  try {
+    const res = await fetch("/api/leads", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
 
-  const result = await res.json();
+    const result = await res.json();
 
-  if (result.success) {
-    alert("✅ Form Submitted Successfully!");
+    if (result.success) {
+      alert("✅ Form Submitted!");
 
-    // optional WhatsApp redirect
-    const msg = `Name: ${data.name}%0ACourse: ${data.course}%0ACity: ${data.city}`;
-    window.open(`https://wa.me/91XXXXXXXXXX?text=${msg}`);
+      form.reset();
+      window.closeForm();
+    } else {
+      alert("❌ Error submitting form");
+    }
 
-    form.reset();
-    closeForm();
-  } else {
-    alert("❌ Something went wrong");
+  } catch (err) {
+    console.error(err);
+    alert("❌ Server error");
   }
-
-} catch (error) {
-  console.error(error);
-  alert("❌ Server error");
-}
+});
 ```
 
-});
 }
 
 /* ===============================
-🖼️ IMAGE SLIDER
+IMAGE SLIDER
 ================================= */
 
 const images = [
@@ -89,27 +89,14 @@ slideImage.src = images[index];
 }
 
 /* ===============================
-🔥 CLICK OUTSIDE POPUP CLOSE
+CLICK OUTSIDE CLOSE
 ================================= */
 
 window.addEventListener("click", function (e) {
 const popup = document.getElementById("popup");
-
 if (e.target === popup) {
-closeForm();
+window.closeForm();
 }
 });
 
-/* ===============================
-🎯 SIMPLE SCROLL EFFECT
-================================= */
-
-window.addEventListener("scroll", () => {
-const navbar = document.querySelector(".navbar");
-
-if (window.scrollY > 50) {
-navbar.style.background = "#000";
-} else {
-navbar.style.background = "#020617";
-}
 });
