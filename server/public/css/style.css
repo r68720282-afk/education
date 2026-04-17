@@ -1,73 +1,118 @@
-body{
-margin:0;
-font-family:Poppins;
-background:#f8fafc;
-color:#0f172a;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.hero{
-padding:80px;
-text-align:center;
-background:#1e3a8a;
-color:white;
-}
+<title>Admission Guidance in Madhya Pradesh</title>
 
-.section{
-padding:60px;
-max-width:1000px;
-margin:auto;
-}
+<meta name="description" content="Get admission guidance in Madhya Pradesh for Nursing, Engineering, IT, MBA and more. Free counseling available.">
 
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
+<!-- ✅ FIXED PATH -->
+<link rel="stylesheet" href="css/style.css">
 
-.card{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-cursor:pointer;
-text-align:center;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
 
-#courseSection{
-display:none;
-}
+<body>
 
-button{
-background:#2563eb;
-color:white;
-padding:10px 20px;
-border:none;
-cursor:pointer;
-}
+<!-- HERO -->
+<section class="hero">
+<h1>Admission Guidance in Madhya Pradesh 🎓</h1>
+<p>Get expert counseling for Nursing, Engineering, IT, MBA & more</p>
 
-.popup{
-display:none;
-position:fixed;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-justify-content:center;
-align-items:center;
-}
+<button onclick="openForm('General')">Apply for Free Counseling</button>
+</section>
 
-.popup-box{
-background:white;
-padding:20px;
-border-radius:10px;
-}
+<!-- CATEGORY -->
+<section class="section">
+<h2>Top Courses in Madhya Pradesh</h2>
 
-input,select{
-width:100%;
-padding:10px;
-margin:5px 0;
-}
+<div class="grid">
 
-@media(max-width:768px){
-.grid{grid-template-columns:1fr;}
-}
+<div onclick="openCategory('Medical')" class="card">Medical Courses</div>
+<div onclick="openCategory('Engineering')" class="card">Engineering</div>
+<div onclick="openCategory('Computer')" class="card">IT Courses</div>
+<div onclick="openCategory('Management')" class="card">Management</div>
+<div onclick="openCategory('Pharmacy')" class="card">Pharmacy</div>
+<div onclick="openCategory('Law')" class="card">Law</div>
+
+</div>
+</section>
+
+<!-- COURSE DETAIL -->
+<section id="courseSection" class="section">
+<h2 id="catTitle"></h2>
+<p id="catDesc"></p>
+
+<div id="courseList"></div>
+
+<button onclick="openForm(currentCourse)">Apply Now</button>
+</section>
+
+<!-- EXAMS -->
+<section class="section">
+<h2>Entrance Exams in MP</h2>
+
+<div class="grid">
+<div class="card">NEET</div>
+<div class="card">JEE</div>
+<div class="card">CAT</div>
+<div class="card">CMAT</div>
+</div>
+
+<p>
+We provide complete admission guidance for entrance exams in Madhya Pradesh including NEET, JEE, CAT and more.
+</p>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+<h2>About Our Services</h2>
+
+<p>
+We help students across Madhya Pradesh including Bhopal, Indore, Jabalpur to choose the right course and secure admission.
+</p>
+
+<a href="about.html">Read More →</a>
+</section>
+
+<!-- DISTANCE -->
+<section class="section">
+<h2>Distance Courses</h2>
+
+<p>
+Explore online and distance education programs with expert guidance.
+</p>
+
+<a href="distance.html">Explore →</a>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+<div class="popup-box">
+
+<span onclick="closeForm()">×</span>
+
+<h3>Apply for Counseling</h3>
+
+<form id="studentForm">
+<input id="name" placeholder="Name" required>
+<input id="mobile" placeholder="Mobile" required>
+<input id="email" placeholder="Email">
+
+<select id="course">
+<option>General</option>
+</select>
+
+<button type="submit">Submit</button>
+</form>
+
+</div>
+</div>
+
+<!-- ✅ FIXED PATH -->
+<script src="js/main.js" defer></script>
+
+</body>
+</html>
