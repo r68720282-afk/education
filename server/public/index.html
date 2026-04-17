@@ -6,32 +6,37 @@
 
 <title>Best Colleges in MP | Admission Guidance</title>
 
-<meta name="description" content="Find best colleges in MP for Engineering, Nursing, IT, MBA & more. Get admission guidance.">
+<meta name="description" content="Find best colleges in MP for Engineering, Nursing, IT, MBA and more. Get admission guidance.">
+<meta name="keywords" content="college in MP, engineering, nursing, MBA, BCA admission">
+<meta name="author" content="College Portal">
+
+<meta property="og:title" content="Best Colleges in MP">
+<meta property="og:description" content="Find top colleges and courses">
+<meta property="og:image" content="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-text">
+  <div>
     <h1>Find Your Dream Course 🎓</h1>
     <p>Explore top courses & get admission guidance</p>
     <button onclick="openForm('General')">Apply Now</button>
   </div>
-  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
+
+  <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b">
 </section>
 
-<!-- CATEGORIES -->
 <section class="categories">
 <h2>Explore Courses</h2>
 
 <div class="grid">
 
 <div class="card" onclick="openCategory('Medical')">
-<img src="https://images.unsplash.com/photo-1580281657527-47e9b6e33c61">
-<h3>Nursing & Paramedical</h3>
+<img src="https://images.unsplash.com/photo-1576765608866-5b51046452be">
+<h3>Nursing</h3>
 </div>
 
 <div class="card" onclick="openCategory('Pharmacy')">
@@ -40,13 +45,13 @@
 </div>
 
 <div class="card" onclick="openCategory('Engineering')">
-<img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232">
+<img src="https://images.unsplash.com/photo-1581091012184-5c1d4b0d4b7f">
 <h3>Engineering</h3>
 </div>
 
 <div class="card" onclick="openCategory('Computer')">
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
-<h3>Computer / IT</h3>
+<img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f">
+<h3>IT / Computer</h3>
 </div>
 
 <div class="card" onclick="openCategory('Management')">
@@ -72,8 +77,7 @@
 </div>
 </section>
 
-<!-- CATEGORY DETAIL -->
-<section id="categoryDetail" class="detail">
+<section id="categoryDetail" class="detail" style="display:none;">
 <h1 id="catTitle"></h1>
 <img id="catImage">
 <p id="catDesc"></p>
@@ -83,7 +87,6 @@
 <button onclick="openForm(currentCourse)">Apply Now</button>
 </section>
 
-<!-- POPUP -->
 <div id="popup" class="popup">
 <div class="popup-box">
 
