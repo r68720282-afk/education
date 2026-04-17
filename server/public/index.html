@@ -6,25 +6,24 @@
 
 <title>Admission Guidance MP</title>
 
-<meta name="description" content="Best admission guidance in Madhya Pradesh for Nursing, Engineering, IT, MBA, Pharmacy. Get free counseling and secure your admission today.">
+<meta name="description" content="Best admission guidance in Madhya Pradesh for Nursing, Engineering, IT, MBA, Pharmacy.">
 
 <link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
 <!-- HERO -->
-<section class="hero fade-in">
+<section class="hero">
   <div class="hero-text">
-    <h1>Best Admission Guidance in Madhya Pradesh 🎓</h1>
-    <p>Get expert counseling for Nursing, Engineering, IT & Management courses</p>
+    <h1>Best Admission Guidance in MP 🎓</h1>
+    <p>Get Free Counseling for Top Courses</p>
 
-    <!-- HERO FORM -->
     <form id="heroForm">
-      <input id="hname" placeholder="Your Name" required>
-      <input id="hmobile" placeholder="Mobile Number" required>
+      <input id="hname" placeholder="Name" required>
+      <input id="hmobile" placeholder="Mobile" required>
 
       <select id="hcourse">
         <option>General</option>
@@ -33,74 +32,64 @@
         <option>IT</option>
       </select>
 
-      <button type="submit">Get Free Counseling</button>
+      <button type="submit">Get Free Call</button>
     </form>
   </div>
 
-  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
+  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600">
 </section>
 
-<!-- SEO TEXT -->
-<p class="seo-text">
-Looking for the best courses after 12th? We provide complete admission guidance for students in Madhya Pradesh. 
-Get free counseling, low fees options, and fast admission support.
-</p>
-
 <!-- CATEGORY -->
-<section class="fade-in">
+<section>
 <h2>Top Courses After 12th</h2>
 
 <div class="grid">
 
 <div class="card" onclick="openCategory('Medical')">
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b">
+<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b?w=400">
 <h3>Nursing</h3>
 </div>
 
-<div class="card" onclick="openCategory('Pharmacy')">
-<img src="https://images.unsplash.com/photo-1580281657527-47a7c54b6b3f">
-<h3>Pharmacy</h3>
-</div>
-
 <div class="card" onclick="openCategory('Engineering')">
-<img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc">
+<img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400">
 <h3>Engineering</h3>
 </div>
 
 <div class="card" onclick="openCategory('Computer')">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400">
 <h3>IT</h3>
-</div>
-
-<div class="card" onclick="openCategory('Management')">
-<img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
-<h3>Management</h3>
 </div>
 
 </div>
 </section>
 
 <!-- DETAIL -->
-<section id="categoryDetail" class="detail fade-in">
+<section id="categoryDetail" class="detail">
+
+<div class="big-card">
+<img id="catImage">
+
+<div class="big-content">
 <h2 id="catTitle"></h2>
 <p id="catDesc"></p>
 
-<div id="courseList" class="course-grid"></div>
+<div id="courseList" class="course-tags"></div>
+
+<ul>
+<li>✔ Course Details & Fees</li>
+<li>✔ Career Opportunities</li>
+</ul>
 
 <button onclick="openForm(currentCourse)">Apply Now</button>
+</div>
 
-<p class="seo-text">
-Choose from a variety of professional courses with high career scope and get expert guidance.
-</p>
+</div>
+
 </section>
 
 <!-- WHY -->
-<section class="fade-in">
+<section>
 <h2>Why Choose Us</h2>
-
-<p class="seo-text">
-We provide free counseling, expert guidance, low fees options, and fast admission process.
-</p>
 
 <div class="grid">
 <div class="card">Free Counseling</div>
@@ -110,20 +99,30 @@ We provide free counseling, expert guidance, low fees options, and fast admissio
 </div>
 </section>
 
-<!-- CTA -->
-<section class="cta fade-in">
-<h2>Admission Open 2026</h2>
-<button onclick="openForm('General')">Apply Now</button>
+<!-- ABOUT + DISTANCE -->
+<section class="links-section">
+
+<div class="link-card">
+<img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400">
+<h3>About Us</h3>
+<a href="about.html">View More →</a>
+</div>
+
+<div class="link-card">
+<img src="https://images.unsplash.com/photo-1581092919535-7146ff1a590e?w=400">
+<h3>Distance Courses</h3>
+<a href="distance.html">Explore →</a>
+</div>
+
 </section>
 
-<!-- LONG SEO -->
-<div class="seo-content">
+<!-- SEO -->
+<section class="seo-content">
 <h2>Admission Guidance in MP</h2>
 <p>
-We help students choose the best course after 12th and provide complete admission support.
-Students from Bhopal, Indore, and Jabalpur can get free counseling and guidance.
+We help students choose best courses after 12th and provide full admission support.
 </p>
-</div>
+</section>
 
 <!-- POPUP -->
 <div id="popup" class="popup">
@@ -136,12 +135,11 @@ Students from Bhopal, Indore, and Jabalpur can get free counseling and guidance.
 <form id="studentForm">
 <input id="name" placeholder="Name" required>
 <input id="mobile" placeholder="Mobile" required>
-<input id="email" placeholder="Email" required>
+<input id="email" placeholder="Email">
 
 <select id="city">
 <option>Bhopal</option>
 <option>Indore</option>
-<option>Jabalpur</option>
 </select>
 
 <input id="course" readonly>
