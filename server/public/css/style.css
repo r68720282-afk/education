@@ -1,113 +1,118 @@
 body{
 margin:0;
 font-family:Poppins;
-background:#020617;
+background:linear-gradient(135deg,#0f172a,#1e1b4b);
 color:white;
 }
 
+/* HERO */
 .hero{
 display:flex;
 justify-content:space-between;
-padding:40px;
+padding:80px;
 }
 
-.hero img{
-width:350px;
-border-radius:10px;
+.hero-left{
+max-width:500px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
+.hero h1{
+font-size:50px;
+background:linear-gradient(90deg,#6366f1,#9333ea);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* FLOATING FORM */
+.hero-form{
+background:rgba(255,255,255,0.05);
 padding:20px;
+border-radius:15px;
+backdrop-filter:blur(10px);
 }
 
-.card{
-background:#1e293b;
-border-radius:10px;
-cursor:pointer;
-overflow:hidden;
-}
-
-.card img{
-width:100%;
-height:150px;
-object-fit:cover;
-}
-
-.card:hover{
-transform:scale(1.05);
-}
-
-.detail{
-display:none;
-padding:40px;
-}
-
-.big-card{
+/* CATEGORY */
+.categories{
 display:flex;
 gap:20px;
-background:#1e293b;
+padding:50px;
+}
+
+.cat-card{
+flex:1;
+position:relative;
+cursor:pointer;
+}
+
+.cat-card img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.cat-card h2{
+position:absolute;
+bottom:20px;
+left:20px;
+}
+
+/* COURSE */
+.course-section{
+display:none;
+padding:60px;
+}
+
+.course-box{
+display:flex;
+gap:30px;
+background:rgba(255,255,255,0.05);
 padding:20px;
+border-radius:15px;
+}
+
+.course-box img{
+width:300px;
 border-radius:10px;
 }
 
-.big-card img{
-width:250px;
-}
-
-.course-tags span{
-background:#334155;
+.tags span{
+background:#6366f1;
 padding:8px;
 margin:5px;
-display:inline-block;
 cursor:pointer;
 }
 
-.links-section{
-display:flex;
+/* WHY */
+.why{
+padding:60px;
+}
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
 gap:20px;
-padding:40px;
 }
 
-.link-card{
-flex:1;
-background:#1e293b;
-padding:20px;
-text-align:center;
-}
-
+/* POPUP */
 .popup{
 display:none;
 position:fixed;
+top:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.8);
 justify-content:center;
 align-items:center;
 }
 
 .popup-box{
 background:#1e293b;
-padding:20px;
-width:300px;
-}
-
-input,select{
-width:100%;
-margin:5px;
-padding:10px;
-}
-
-button{
-background:#6366f1;
-color:white;
-padding:10px;
-border:none;
+padding:30px;
+border-radius:15px;
 }
 
 @media(max-width:768px){
 .hero{flex-direction:column;}
-.grid{grid-template-columns:1fr;}
+.categories{flex-direction:column;}
 }
