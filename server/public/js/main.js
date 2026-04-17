@@ -4,20 +4,20 @@ const categories={
 Medical:{
 title:"Nursing Courses",
 desc:"Best nursing programs",
-img:"https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b?w=600",
-courses:["GNM","BSc Nursing"]
+img:"https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b?w=800",
+courses:["GNM","BSc Nursing","ANM"]
 },
 Engineering:{
 title:"Engineering Courses",
 desc:"Top engineering programs",
-img:"https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600",
-courses:["B.Tech"]
+img:"https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800",
+courses:["B.Tech","Diploma"]
 },
 Computer:{
 title:"IT Courses",
 desc:"IT programs",
-img:"https://images.unsplash.com/photo-1518770660439-4636190af475?w=600",
-courses:["BCA"]
+img:"https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+courses:["BCA","MCA"]
 }
 };
 
@@ -25,7 +25,7 @@ function openCategory(name){
 const data=categories[name];
 currentCourse=name;
 
-document.getElementById("categoryDetail").style.display="block";
+document.getElementById("courseSection").style.display="block";
 
 catTitle.innerText=data.title;
 catDesc.innerText=data.desc;
