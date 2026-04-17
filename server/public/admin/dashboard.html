@@ -1,26 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Dashboard</title>
-<link rel="stylesheet" href="css/admin.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #020617;
+  padding: 20px;
+  position: fixed;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 12px;
+  margin: 5px 0;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.sidebar a:hover {
+  background: #1e293b;
+}
+
+/* MAIN */
+.main {
+  margin-left: 220px;
+  padding: 20px;
+  width: 100%;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* LOGOUT */
+.logout {
+  margin-top: 20px;
+  background: red;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+</style>
+
 </head>
 
 <body>
 
 <div class="container">
 
+<!-- SIDEBAR -->
 <div class="sidebar">
   <h2>Admin</h2>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="students.html">Students</a>
-  <a href="visitors.html">Visitors</a>
+
+  <a href="dashboard.html">📊 Dashboard</a>
+  <a href="students.html">👥 Students</a>
+  <a href="visitors.html">👀 Visitors</a>
+
+  <div class="logout" onclick="logout()">Logout</div>
 </div>
 
+<!-- MAIN -->
 <div class="main">
 
 <h1>Dashboard</h1>
 
 <div class="cards">
+
   <div class="card">
     <h3>Total Students</h3>
     <p id="studentsCount">0</p>
@@ -30,12 +110,45 @@
     <h3>Total Visitors</h3>
     <p id="visitorsCount">0</p>
   </div>
-</div>
 
 </div>
 
 </div>
 
-<script src="js/admin.js"></script>
+</div>
+
+<script>
+// 🔐 Protect page
+if(localStorage.getItem("admin") !== "true"){
+  window.location.href = "login.html";
+}
+
+// 📊 Fetch Students
+fetch("/api/users")
+.then(res => res.json())
+.then(data => {
+  document.getElementById("studentsCount").innerText = data.length;
+})
+.catch(() => {
+  document.getElementById("studentsCount").innerText = "0";
+});
+
+// 👀 Fetch Visitors
+fetch("/api/visitors")
+.then(res => res.json())
+.then(data => {
+  document.getElementById("visitorsCount").innerText = data.length;
+})
+.catch(() => {
+  document.getElementById("visitorsCount").innerText = "0";
+});
+
+// 🚪 Logout
+function logout(){
+  localStorage.removeItem("admin");
+  window.location.href = "login.html";
+}
+</script>
+
 </body>
 </html>
