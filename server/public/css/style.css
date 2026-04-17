@@ -1,92 +1,63 @@
-/* =========================
-   GLOBAL
-========================= */
 body{
 margin:0;
-font-family:Poppins, sans-serif;
-background:#f8fafc;
-color:#0f172a;
+font-family:Poppins;
+background:#f1f5f9;
 }
 
-h1,h2,h3{
-margin:0 0 10px;
-}
-
-/* =========================
-   NAVBAR
-========================= */
+/* NAVBAR */
 .navbar{
 display:flex;
 justify-content:space-between;
-align-items:center;
-padding:15px 50px;
+padding:15px 40px;
 background:white;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-z-index:1000;
 }
 
 .navbar ul{
 display:flex;
-gap:25px;
+gap:20px;
 list-style:none;
 }
 
-.navbar a{
-text-decoration:none;
-color:#0f172a;
-font-weight:500;
-}
-
-.navbar a:hover{
-color:#2563eb;
-}
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 .hero{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:80px 50px;
-background:linear-gradient(135deg,#2563eb,#7c3aed);
+padding:60px;
+background:linear-gradient(135deg,#6366f1,#9333ea);
 color:white;
-flex-wrap:wrap;
 }
 
 .hero img{
-width:400px;
-border-radius:10px;
-margin-top:20px;
+width:350px;
+border-radius:12px;
 }
 
-.hero button{
-margin-top:20px;
+/* COURSES */
+.courses{
+padding:40px;
+text-align:center;
 }
 
-/* =========================
-   GRID (COURSES)
-========================= */
 .grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:20px;
-padding:40px 50px;
+margin-top:20px;
 }
 
 .card{
 background:white;
-border-radius:10px;
+border-radius:12px;
 overflow:hidden;
 cursor:pointer;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
 transition:0.3s;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-8px);
 }
 
 .card img{
@@ -95,134 +66,36 @@ height:180px;
 object-fit:cover;
 }
 
-.card h3{
-padding:15px;
-text-align:center;
-}
-
-/* =========================
-   SECTION
-========================= */
-.section{
-padding:60px 50px;
-max-width:1100px;
-margin:auto;
-}
-
-/* =========================
-   BLOG
-========================= */
-.blog-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-padding:40px 50px;
-}
-
-.blog-card{
-background:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-
-.blog-card h3{
-margin-bottom:10px;
-}
-
-/* =========================
-   FORM POPUP
-========================= */
+/* POPUP */
 .popup{
 display:none;
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0.6);
 justify-content:center;
 align-items:center;
-z-index:2000;
 }
 
 .popup-box{
 background:white;
 padding:25px;
-border-radius:10px;
+border-radius:12px;
 width:320px;
-position:relative;
 }
 
-.popup-box span{
-position:absolute;
-top:10px;
-right:15px;
-cursor:pointer;
-font-size:20px;
-}
-
-/* =========================
-   FORM INPUT
-========================= */
 input,select{
 width:100%;
 padding:10px;
-margin:8px 0;
-border:1px solid #ddd;
-border-radius:6px;
+margin:10px 0;
 }
 
-/* =========================
-   BUTTON
-========================= */
+/* BUTTON */
 button{
-background:#2563eb;
+background:#6366f1;
 color:white;
-padding:10px 20px;
+padding:10px;
 border:none;
 border-radius:6px;
 cursor:pointer;
-font-weight:500;
-}
-
-button:hover{
-background:#1d4ed8;
-}
-
-/* =========================
-   SLIDER IMAGE
-========================= */
-#slideImage{
-width:400px;
-border-radius:10px;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media(max-width:992px){
-.grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.blog-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.hero{
-flex-direction:column;
-text-align:center;
-}
-}
-
-@media(max-width:600px){
-.grid, .blog-grid{
-grid-template-columns:1fr;
-}
-
-.navbar{
-flex-direction:column;
-gap:10px;
-}
 }
