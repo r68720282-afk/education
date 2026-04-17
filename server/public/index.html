@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Admission Guidance</title>
 
 <link rel="stylesheet" href="style.css">
@@ -13,11 +14,9 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
+  <div class="hero-content">
     <h1>Find Your Dream Course 🎓</h1>
     <p>Get expert admission guidance for top courses</p>
-
-    <button onclick="openForm('General')">Apply Now</button>
   </div>
 
   <!-- FLOATING FORM -->
@@ -31,85 +30,90 @@
         <option>Nursing</option>
         <option>Engineering</option>
       </select>
-      <button type="submit">Submit</button>
+      <button>Submit</button>
     </form>
   </div>
 </section>
 
-<!-- CATEGORY (BIG CARDS) -->
-<section class="categories">
+<!-- CATEGORY -->
+<section class="category">
 
 <div class="cat-card" onclick="openCategory('Medical')">
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b?w=600">
+<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b?w=800">
 <h2>Nursing</h2>
 </div>
 
 <div class="cat-card" onclick="openCategory('Engineering')">
-<img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600">
+<img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800">
 <h2>Engineering</h2>
 </div>
 
 <div class="cat-card" onclick="openCategory('Computer')">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800">
 <h2>IT & Computer</h2>
 </div>
 
 </section>
 
 <!-- COURSE DETAIL -->
-<section id="categoryDetail" class="course-section">
+<section id="courseSection">
 
 <div class="course-box">
-  <img id="catImage">
+<img id="catImage">
 
-  <div class="course-content">
-    <h2 id="catTitle"></h2>
-    <p id="catDesc"></p>
+<div class="course-text">
+<h2 id="catTitle"></h2>
+<p id="catDesc"></p>
 
-    <div id="courseList" class="tags"></div>
+<div id="courseList" class="tags"></div>
 
-    <button onclick="openForm(currentCourse)">Apply Now</button>
-  </div>
+<button onclick="openForm(currentCourse)">Apply Now</button>
 
+</div>
 </div>
 
 </section>
 
-<!-- WHY -->
-<section class="why">
-<h2>Why Choose Us</h2>
-
-<div class="why-grid">
-<div>Free Counseling</div>
-<div>Best Guidance</div>
-<div>Low Fees</div>
-<div>Fast Admission</div>
-</div>
-
+<!-- STEPS -->
+<section class="steps">
+<div>1 Fill Form</div>
+<div>2 Get Call</div>
+<div>3 Choose Course</div>
+<div>4 Admission</div>
 </section>
 
 <!-- SEO -->
 <section class="seo">
 <h2>Admission Guidance in MP</h2>
-<p>We provide expert counseling for students after 12th.</p>
+<p>We provide expert admission guidance for all courses.</p>
+</section>
+
+<!-- ABOUT -->
+<section class="links">
+<div class="link-card">
+<img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800">
+<h3>About Us</h3>
+<a href="about.html">View</a>
+</div>
+
+<div class="link-card">
+<img src="https://images.unsplash.com/photo-1581092919535-7146ff1a590e?w=800">
+<h3>Distance Courses</h3>
+<a href="distance.html">Explore</a>
+</div>
 </section>
 
 <!-- POPUP -->
 <div id="popup" class="popup">
 <div class="popup-box">
-
 <span onclick="closeForm()">×</span>
 
-<h2>Apply Now</h2>
-
 <form id="studentForm">
-<input id="name" placeholder="Name">
-<input id="mobile" placeholder="Mobile">
-<input id="email" placeholder="Email">
-
-<input id="course" readonly>
-
-<button type="submit">Submit</button>
+<input placeholder="Name">
+<input placeholder="Mobile">
+<input placeholder="Email">
+<input id="course">
+<button>Submit</button>
 </form>
 
 </div>
