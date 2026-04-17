@@ -4,101 +4,82 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Top Colleges in MP | College Portal</title>
-
-<meta name="description" content="Find top colleges in Madhya Pradesh. Explore medical, engineering and more courses.">
-<meta name="keywords" content="MP colleges, engineering, medical, college portal">
+<title>College Portal</title>
+<meta name="description" content="Find best colleges with expert guidance">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <h2>🎓 CollegePortal</h2>
-  <button onclick="openForm('General')">Register</button>
-</header>
-
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <p>Welcome 👋</p>
-    <h1>Explore Colleges in Madhya Pradesh</h1>
-    <button class="cta" onclick="openForm('General')">Find College</button>
+  <div>
+    <h1>Find Your Dream College 🎓</h1>
+    <p>Explore top colleges with expert guidance</p>
+    <button onclick="openForm('General')">Get Started</button>
   </div>
 
-  <div class="hero-right">
-    <img src="images/hero.jpg" alt="Students studying">
-  </div>
+  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
 </section>
 
 <!-- CATEGORIES -->
 <section class="categories">
+<h2>Explore Categories</h2>
 
-  <h2>Explore Categories</h2>
+<div class="grid">
 
-  <div class="grid">
+<div class="card" onclick="openCategory('Medical')">
+<img src="https://images.unsplash.com/photo-1580281657527-47e9b6e33c61">
+<h3>Medical</h3>
+</div>
 
-    <div class="card" onclick="openForm('Medical')">
-      <img src="images/medical.jpg">
-      <h3>Medical</h3>
-    </div>
+<div class="card" onclick="openCategory('Engineering')">
+<img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232">
+<h3>Engineering</h3>
+</div>
 
-    <div class="card" onclick="openForm('Engineering')">
-      <img src="images/engineering.jpg">
-      <h3>Engineering</h3>
-    </div>
+<div class="card" onclick="openCategory('Management')">
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
+<h3>Management</h3>
+</div>
 
-    <div class="card" onclick="openForm('Management')">
-      <img src="images/management.jpg">
-      <h3>Management</h3>
-    </div>
-
-    <div class="card" onclick="openForm('IT')">
-      <img src="images/it.jpg">
-      <h3>IT</h3>
-    </div>
-
-    <div class="card" onclick="openForm('Arts')">
-      <img src="images/arts.jpg">
-      <h3>Arts</h3>
-    </div>
-
-    <div class="card" onclick="openForm('Pharmacy')">
-      <img src="images/pharmacy.jpg">
-      <h3>Pharmacy</h3>
-    </div>
-
-  </div>
+</div>
 </section>
 
-<!-- POPUP FORM -->
+<!-- CATEGORY DETAIL -->
+<section id="categoryDetail" style="display:none;">
+<h1 id="catTitle"></h1>
+<img id="catImage">
+<p id="catDesc"></p>
+<button onclick="openForm(currentCourse)">Apply Now</button>
+</section>
+
+<!-- POPUP -->
 <div id="popup" class="popup">
-  <div class="popup-box">
-    <span class="close" onclick="closeForm()">×</span>
+<div class="popup-box">
 
-    <h2>Register</h2>
+<span onclick="closeForm()">×</span>
 
-    <form id="form">
-      <input placeholder="Name" required>
-      <input placeholder="Mobile" required>
-      <input placeholder="Email" required>
+<h2>Get Admission Guidance</h2>
 
-      <select id="city">
-        <option>Bhopal</option>
-        <option>Indore</option>
-        <option>Jabalpur</option>
-        <option>Chhindwara</option>
-        <option>Seoni</option>
-      </select>
+<form id="studentForm">
+<input id="name" placeholder="Name" required>
+<input id="mobile" placeholder="Mobile" required>
+<input id="email" placeholder="Email" required>
 
-      <input id="course" readonly>
+<select id="city">
+<option>Bhopal</option>
+<option>Indore</option>
+<option>Jabalpur</option>
+</select>
 
-      <button type="submit">Submit</button>
-    </form>
+<input id="course" readonly>
 
-  </div>
+<button type="submit">Submit</button>
+</form>
+
+</div>
 </div>
 
 <script src="js/main.js"></script>
