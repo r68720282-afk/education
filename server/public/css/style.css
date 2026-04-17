@@ -75,3 +75,8 @@ body {
   padding: 10px;
   margin: 10px 0;
 }
+.tagline {
+  font-size: 14px;
+  color: #cbd5f5;
+  margin-bottom: 10px;
+}
