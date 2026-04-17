@@ -1,58 +1,132 @@
-let currentCourse="";
+// ============================
+// GLOBAL VARIABLES
+// ============================
+let currentCourse = "General";
 
-const categories={
-Medical:{title:"Medical Courses",desc:"MBBS, Nursing, ANM",courses:["MBBS","GNM","ANM"]},
-Engineering:{title:"Engineering Courses",desc:"B.Tech, Diploma",courses:["B.Tech","Diploma"]},
-Computer:{title:"IT Courses",desc:"BCA, MCA",courses:["BCA","MCA"]},
-Management:{title:"Management Courses",desc:"MBA, BBA",courses:["MBA","BBA"]},
-Pharmacy:{title:"Pharmacy Courses",desc:"B.Pharm",courses:["B.Pharm"]},
-Law:{title:"Law Courses",desc:"LLB",courses:["LLB"]}
-};
 
-function openCategory(name){
-const data=categories[name];
-currentCourse=name;
-
-document.getElementById("courseSection").style.display="block";
-
-document.getElementById("catTitle").innerText=data.title;
-document.getElementById("catDesc").innerText=data.desc;
-
-document.getElementById("courseList").innerHTML=
-data.courses.map(c=>`<div onclick="openForm('${c}')">${c}</div>`).join("");
-}
-
+// ============================
+// OPEN FORM (FROM BUTTON / CARD)
+// ============================
 function openForm(course){
-document.getElementById("popup").style.display="flex";
-document.getElementById("course").value=course;
+    currentCourse = course || "General";
+
+    const popup = document.getElementById("popup");
+    const courseInput = document.getElementById("course");
+
+    if(popup){
+        popup.style.display = "flex";
+    }
+
+    if(courseInput){
+        courseInput.value = currentCourse;
+    }
 }
 
+
+// ============================
+// CLOSE FORM
+// ============================
 function closeForm(){
-document.getElementById("popup").style.display="none";
+    const popup = document.getElementById("popup");
+    if(popup){
+        popup.style.display = "none";
+    }
 }
 
-/* GLOBAL FIX */
-window.openCategory=openCategory;
-window.openForm=openForm;
-window.closeForm=closeForm;
 
-/* FORM SUBMIT */
-document.getElementById("studentForm").addEventListener("submit",async(e)=>{
-e.preventDefault();
-
-const data={
-name:name.value,
-mobile:mobile.value,
-email:email.value,
-course:course.value
-};
-
-await fetch("http://localhost:5000/api/apply",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify(data)
+// ============================
+// CLOSE POPUP WHEN CLICK OUTSIDE
+// ============================
+window.addEventListener("click", function(e){
+    const popup = document.getElementById("popup");
+    if(e.target === popup){
+        popup.style.display = "none";
+    }
 });
 
-alert("Submitted Successfully");
-closeForm();
+
+// ============================
+// IMAGE SLIDER (AUTO)
+// ============================
+const slides = [
+    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800",
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800"
+];
+
+let slideIndex = 0;
+
+function startSlider(){
+    const slideImage = document.getElementById("slideImage");
+
+    if(!slideImage) return; // safety (only run if exists)
+
+    setInterval(() => {
+        slideIndex = (slideIndex + 1) % slides.length;
+        slideImage.src = slides[slideIndex];
+    }, 3000);
+}
+
+
+// ============================
+// FORM SUBMIT (BACKEND CONNECT)
+// ============================
+const form = document.getElementById("studentForm");
+
+if(form){
+    form.addEventListener("submit", async function(e){
+        e.preventDefault();
+
+        const name = document.getElementById("name")?.value;
+        const mobile = document.getElementById("mobile")?.value;
+        const course = document.getElementById("course")?.value;
+        const city = document.getElementById("city")?.value;
+
+        // BASIC VALIDATION
+        if(!name || !mobile){
+            alert("Please fill all required fields");
+            return;
+        }
+
+        if(mobile.length !== 10){
+            alert("Enter valid 10 digit mobile number");
+            return;
+        }
+
+        const data = { name, mobile, course, city };
+
+        try{
+            await fetch("http://localhost:5000/api/apply", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            alert("Form Submitted Successfully ✅");
+
+            form.reset();
+            closeForm();
+
+        }catch(err){
+            alert("Server Error ❌");
+            console.error(err);
+        }
+    });
+}
+
+
+// ============================
+// INIT (PAGE LOAD)
+// ============================
+window.addEventListener("DOMContentLoaded", () => {
+    startSlider();
 });
+
+
+// ============================
+// GLOBAL EXPORT (IMPORTANT)
+// ============================
+window.openForm = openForm;
+window.closeForm = closeForm;
