@@ -3,75 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admission Guidance</title>
 
-<title>Best Colleges in MP | Admission Guidance</title>
-
-<meta name="description" content="Find best colleges in MP for Engineering, Nursing, IT, MBA.">
-
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
-  <div>
+  <div class="hero-text">
     <h1>Find Your Dream Course 🎓</h1>
-    <p>Explore top courses & get admission guidance</p>
+    <p>Get Free Admission Guidance from Experts</p>
     <button onclick="openForm('General')">Apply Now</button>
   </div>
 
-  <img src="https://source.unsplash.com/600x400/?college,students">
+  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
 </section>
 
-<section class="categories">
-<h2>Explore Courses</h2>
+<!-- CATEGORY -->
+<section>
+<h2 style="text-align:center;">Explore Courses</h2>
 
 <div class="grid">
 
-<div class="card" onclick="openCategory('Medical')">
-<img src="https://source.unsplash.com/400x300/?nursing,students">
-<h3>Nursing</h3>
-</div>
-
-<div class="card" onclick="openCategory('Pharmacy')">
-<img src="https://source.unsplash.com/400x300/?pharmacy,lab">
-<h3>Pharmacy</h3>
-</div>
-
-<div class="card" onclick="openCategory('Engineering')">
-<img src="https://source.unsplash.com/400x300/?engineering,lab">
-<h3>Engineering</h3>
-</div>
-
-<div class="card" onclick="openCategory('Computer')">
-<img src="https://source.unsplash.com/400x300/?coding,students">
-<h3>IT / Computer</h3>
-</div>
-
-<div class="card" onclick="openCategory('Management')">
-<img src="https://source.unsplash.com/400x300/?business,students">
-<h3>Management</h3>
-</div>
+<div class="card" onclick="openCategory('Medical')">Nursing</div>
+<div class="card" onclick="openCategory('Pharmacy')">Pharmacy</div>
+<div class="card" onclick="openCategory('Engineering')">Engineering</div>
+<div class="card" onclick="openCategory('Computer')">IT / Computer</div>
+<div class="card" onclick="openCategory('Management')">Management</div>
 
 </div>
 </section>
 
-<section id="categoryDetail" class="detail" style="display:none;">
-<h1 id="catTitle"></h1>
-<img id="catImage">
+<!-- DETAIL -->
+<section id="categoryDetail" class="detail">
+<h2 id="catTitle"></h2>
 <p id="catDesc"></p>
 
 <div id="courseList" class="course-grid"></div>
 
-<button onclick="openForm(currentCourse)">Apply Now</button>
+<button onclick="openForm(currentCourse || 'General')">Apply Now</button>
 </section>
 
+<!-- WHY -->
+<section class="why">
+<h2>Why Choose Us</h2>
+<div class="grid">
+<div class="card">Free Counseling</div>
+<div class="card">Best Guidance</div>
+<div class="card">Low Fees</div>
+<div class="card">Fast Admission</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section>
+<h2 style="text-align:center;">How It Works</h2>
+<div class="grid">
+<div class="card">1. Fill Form</div>
+<div class="card">2. Get Call</div>
+<div class="card">3. Choose Course</div>
+<div class="card">4. Admission Done</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<h2>Admission Open 2026</h2>
+<button onclick="openForm('General')">Apply Now</button>
+</section>
+
+<!-- POPUP -->
 <div id="popup" class="popup">
 <div class="popup-box">
 
 <span onclick="closeForm()">×</span>
 
-<h2>Admission Guidance</h2>
+<h2>Apply Now</h2>
 
 <form id="studentForm">
 <input id="name" placeholder="Name" required>
@@ -92,8 +101,7 @@
 </div>
 </div>
 
-<!-- 🔥 IMPORTANT FIX -->
-<script src="js/main.js" defer></script>
+<script src="main.js"></script>
 
 </body>
 </html>
