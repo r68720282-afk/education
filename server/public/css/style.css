@@ -5,11 +5,11 @@ body {
   color: white;
 }
 
-/* HERO */
 .hero {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  padding: 60px;
+  padding: 50px;
   background: linear-gradient(135deg,#6366f1,#9333ea);
 }
 
@@ -18,25 +18,23 @@ body {
   border-radius: 10px;
 }
 
-/* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 20px;
   padding: 20px;
 }
 
-/* CARD */
 .card {
   background: #1e293b;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
 }
 
 .card img {
@@ -45,10 +43,23 @@ body {
   object-fit: cover;
 }
 
-/* CATEGORY DETAIL */
-#categoryDetail {
-  padding: 40px;
-  text-align: center;
+/* COURSE GRID */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.course-card {
+  background: #1e293b;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.course-card:hover {
+  background: #3b82f6;
 }
 
 /* POPUP */
@@ -63,20 +74,28 @@ body {
 .popup-box {
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
-  padding: 25px;
+  padding: 20px;
   width: 300px;
   margin: 100px auto;
   border-radius: 10px;
 }
 
-.popup-box input,
-.popup-box select {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-}
 .tagline {
   font-size: 14px;
-  color: #cbd5f5;
-  margin-bottom: 10px;
+  color: #ccc;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero img {
+    width: 100%;
+  }
 }
