@@ -15,10 +15,10 @@ currentCourse=name;
 
 document.getElementById("courseSection").style.display="block";
 
-catTitle.innerText=data.title;
-catDesc.innerText=data.desc;
+document.getElementById("catTitle").innerText=data.title;
+document.getElementById("catDesc").innerText=data.desc;
 
-courseList.innerHTML=
+document.getElementById("courseList").innerHTML=
 data.courses.map(c=>`<div onclick="openForm('${c}')">${c}</div>`).join("");
 }
 
@@ -31,6 +31,7 @@ function closeForm(){
 document.getElementById("popup").style.display="none";
 }
 
+/* GLOBAL FIX */
 window.openCategory=openCategory;
 window.openForm=openForm;
 window.closeForm=closeForm;
