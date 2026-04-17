@@ -6,48 +6,65 @@
 <title>Admission Guidance</title>
 
 <link rel="stylesheet" href="style.css">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero fade-in">
   <div class="hero-text">
     <h1>Find Your Dream Course 🎓</h1>
-    <p>Get Free Admission Guidance from Experts</p>
-    <button onclick="openForm('General')">Apply Now</button>
+    <p>Get Free Admission Guidance</p>
+
+    <!-- MINI FORM -->
+    <form id="heroForm">
+      <input id="hname" placeholder="Name" required>
+      <input id="hmobile" placeholder="Mobile" required>
+
+      <select id="hcourse">
+        <option>General</option>
+        <option>Nursing</option>
+        <option>Engineering</option>
+        <option>IT</option>
+      </select>
+
+      <button type="submit">Get Free Call</button>
+    </form>
   </div>
 
   <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
 </section>
 
 <!-- CATEGORY -->
-<section>
-<h2 style="text-align:center;">Explore Courses</h2>
+<section class="fade-in">
+<h2>Explore Courses</h2>
 
 <div class="grid">
 
 <div class="card" onclick="openCategory('Medical')">Nursing</div>
 <div class="card" onclick="openCategory('Pharmacy')">Pharmacy</div>
 <div class="card" onclick="openCategory('Engineering')">Engineering</div>
-<div class="card" onclick="openCategory('Computer')">IT / Computer</div>
+<div class="card" onclick="openCategory('Computer')">IT</div>
 <div class="card" onclick="openCategory('Management')">Management</div>
 
 </div>
 </section>
 
 <!-- DETAIL -->
-<section id="categoryDetail" class="detail">
+<section id="categoryDetail" class="detail fade-in">
 <h2 id="catTitle"></h2>
 <p id="catDesc"></p>
 
 <div id="courseList" class="course-grid"></div>
 
-<button onclick="openForm(currentCourse || 'General')">Apply Now</button>
+<button onclick="openForm(currentCourse)">Apply Now</button>
 </section>
 
 <!-- WHY -->
-<section class="why">
+<section class="fade-in">
 <h2>Why Choose Us</h2>
 <div class="grid">
 <div class="card">Free Counseling</div>
@@ -58,18 +75,18 @@
 </section>
 
 <!-- PROCESS -->
-<section>
-<h2 style="text-align:center;">How It Works</h2>
+<section class="fade-in">
+<h2>How It Works</h2>
 <div class="grid">
-<div class="card">1. Fill Form</div>
-<div class="card">2. Get Call</div>
-<div class="card">3. Choose Course</div>
-<div class="card">4. Admission Done</div>
+<div class="card">Fill Form</div>
+<div class="card">Get Call</div>
+<div class="card">Choose Course</div>
+<div class="card">Admission Done</div>
 </div>
 </section>
 
 <!-- CTA -->
-<section class="cta">
+<section class="cta fade-in">
 <h2>Admission Open 2026</h2>
 <button onclick="openForm('General')">Apply Now</button>
 </section>
