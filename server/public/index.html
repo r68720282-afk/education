@@ -3,106 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admission Guidance MP</title>
 
-<title>Admission Guidance in Madhya Pradesh</title>
-
-<meta name="description" content="Get admission guidance in Madhya Pradesh for Nursing, Engineering, IT, MBA and more. Free counseling available.">
-
-<!-- ✅ FIXED PATH -->
 <link rel="stylesheet" href="css/style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- HERO -->
+<nav class="navbar">
+<h2>EduGuide MP</h2>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="distance.html">Distance</a></li>
+<li><a href="blog.html">Blog</a></li>
+</ul>
+</nav>
+
 <section class="hero">
-<h1>Admission Guidance in Madhya Pradesh 🎓</h1>
-<p>Get expert counseling for Nursing, Engineering, IT, MBA & more</p>
-
-<button onclick="openForm('General')">Apply for Free Counseling</button>
-</section>
-
-<!-- CATEGORY -->
-<section class="section">
-<h2>Top Courses in Madhya Pradesh</h2>
-
-<div class="grid">
-
-<div onclick="openCategory('Medical')" class="card">Medical Courses</div>
-<div onclick="openCategory('Engineering')" class="card">Engineering</div>
-<div onclick="openCategory('Computer')" class="card">IT Courses</div>
-<div onclick="openCategory('Management')" class="card">Management</div>
-<div onclick="openCategory('Pharmacy')" class="card">Pharmacy</div>
-<div onclick="openCategory('Law')" class="card">Law</div>
-
-</div>
-</section>
-
-<!-- COURSE DETAIL -->
-<section id="courseSection" class="section">
-<h2 id="catTitle"></h2>
-<p id="catDesc"></p>
-
-<div id="courseList"></div>
-
-<button onclick="openForm(currentCourse)">Apply Now</button>
-</section>
-
-<!-- EXAMS -->
-<section class="section">
-<h2>Entrance Exams in MP</h2>
-
-<div class="grid">
-<div class="card">NEET</div>
-<div class="card">JEE</div>
-<div class="card">CAT</div>
-<div class="card">CMAT</div>
+<div>
+<h1>Admission Guidance in MP 🎓</h1>
+<p>Get expert counseling for all courses</p>
+<button onclick="openForm('General')">Apply Now</button>
 </div>
 
-<p>
-We provide complete admission guidance for entrance exams in Madhya Pradesh including NEET, JEE, CAT and more.
-</p>
+<img id="slideImage" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800">
 </section>
 
-<!-- ABOUT -->
-<section class="section">
-<h2>About Our Services</h2>
+<section class="grid">
 
-<p>
-We help students across Madhya Pradesh including Bhopal, Indore, Jabalpur to choose the right course and secure admission.
-</p>
+<div class="card" onclick="openForm('GNM')">
+<img src="https://images.unsplash.com/photo-1588776814546-ec7e0f0f9c1b?w=400">
+<h3>Medical</h3>
+</div>
 
-<a href="about.html">Read More →</a>
+<div class="card" onclick="openForm('B.Tech')">
+<img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400">
+<h3>Engineering</h3>
+</div>
+
+<div class="card" onclick="openForm('BCA')">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400">
+<h3>IT</h3>
+</div>
+
+<div class="card" onclick="openForm('MBA')">
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400">
+<h3>Management</h3>
+</div>
+
 </section>
 
-<!-- DISTANCE -->
-<section class="section">
-<h2>Distance Courses</h2>
-
-<p>
-Explore online and distance education programs with expert guidance.
-</p>
-
-<a href="distance.html">Explore →</a>
-</section>
-
-<!-- POPUP -->
+<!-- FORM -->
 <div id="popup" class="popup">
 <div class="popup-box">
 
 <span onclick="closeForm()">×</span>
 
-<h3>Apply for Counseling</h3>
-
 <form id="studentForm">
 <input id="name" placeholder="Name" required>
 <input id="mobile" placeholder="Mobile" required>
-<input id="email" placeholder="Email">
 
 <select id="course">
-<option>General</option>
+<option>GNM</option>
+<option>B.Tech</option>
+<option>BCA</option>
+<option>MBA</option>
+</select>
+
+<select id="city">
+<option>Indore</option>
+<option>Bhopal</option>
+<option>Jabalpur</option>
+<option>Chhindwara</option>
+<option>Seoni</option>
 </select>
 
 <button type="submit">Submit</button>
@@ -111,8 +86,6 @@ Explore online and distance education programs with expert guidance.
 </div>
 </div>
 
-<!-- ✅ FIXED PATH -->
 <script src="js/main.js" defer></script>
-
 </body>
 </html>
